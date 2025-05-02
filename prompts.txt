@@ -1,0 +1,2 @@
+cria um site para mim com essa logo ![FRAGOSOlogo.png](https://cdn-uploads.huggingface.co/production/uploads/6815259c976bd0b76d28b0d8/N_sPJaPLUy3F1uYcLP5Ws.png)
+coloca a logo tambem antes do nossa historia que esta com uma imagem corrompida, temos +10 veiculos, coloca a ultima logo em png  

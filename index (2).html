@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="wth=device-width, initial-scale=1.0">
+    <title>Fragoso's Transportes - Soluções Logísticas Integidradas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: #fff;
+            color: #000;
+            scroll-behavior: smooth;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1609974209735-516cd239fe4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .map-container {
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            position: relative;
+            height: 0;
+        }
+        
+        .map-container iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+        
+        .floating-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 50;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(220, 38, 38, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+            }
+        }
+        
+        .logo-container {
+            height: 60px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            height: 100%;
+            width: auto;
+        }
+        
+        .about-logo {
+            max-height: 120px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="logo-container mr-3">
+                    <img src="https://cdn-uploads.huggingface.co/production/uploads/6815259c976bd0b76d28b0d8/N_sPJaPLUy3F1uYcLP5Ws.png" alt="Fragoso's Transportes" class="logo-img">
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-red-600 font-medium hover:text-red-800 transition">Início</a>
+                <a href="#services" class="text-gray-700 hover:text-red-600 transition">Serviços</a>
+                <a href="#about" class="text-gray-700 hover:text-red-600 transition">Sobre Nós</a>
+                <a href="#coverage" class="text-gray-700 hover:text-red-600 transition">Áreas de Atuação</a>
+                <a href="#contact" class="text-gray-700 hover:text-red-600 transition">Contato</a>
+            </nav>
+            
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="text-red-600 font-medium hover:text-red-800 transition">Início</a>
+                <a href="#services" class="text-gray-700 hover:text-red-600 transition">Serviços</a>
+                <a href="#about" class="text-gray-700 hover:text-red-600 transition">Sobre Nós</a>
+                <a href="#coverage" class="text-gray-700 hover:text-red-600 transition">Áreas de Atuação</a>
+                <a href="#contact" class="text-gray-700 hover:text-red-600 transition">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-4 text-white">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">40 Anos de História em Transporte e Logística</h1>
+                <p class="text-lg mb-8">Tradição familiar que se transformou em excelência em soluções logísticas em todo o Nordeste e Brasil.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-medium text-center transition">Solicite um Orçamento</a>
+                    <a href="tel:82996108988" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-6 py-3 rounded-lg font-medium text-center transition">
+                        <i class="fas fa-phone mr-2"></i> (82) 99610-8988
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-red-600 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl font-bold mb-2">40+</div>
+                    <div class="text-sm uppercase tracking-wider">Anos de Experiência</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">1000+</div>
+                    <div class="text-sm uppercase tracking-wider">Clientes Satisfeitos</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">10+</div>
+                    <div class="text-sm uppercase tracking-wider">Veículos</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">9</div>
+                    <div class="text-sm uppercase tracking-wider">Estados Atendidos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Nossos Serviços</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Oferecemos soluções completas em transporte e logística com eficiência e compromisso.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition duration-300">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-truck text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Transporte Rodoviário</h3>
+                    <p class="text-gray-600">Soluções completas para transporte de cargas em todo território nacional com frota moderna e rastreada 24h.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition duration-300">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-warehouse text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Armazenagem</h3>
+                    <p class="text-gray-600">Estrutura moderna para armazenagem com controle de temperatura umidade para diversos tipos de produtos.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition duration-300">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-boxes text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Distribuição</h3>
+                    <p class="text-gray-600">Sistema eficiente de distribuição urbana e regional com tecnologia de roteirização inteligente.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition duration-300">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-shipping-fast text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Logística Expressa</h3>
+                    <p class="text-gray-600">Entregas urgentes com prazos reduzidos para quando você precisa de agilidade e confiabilidade.</p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition duration-300">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-temperature-low text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Transporte Refrigerado</h3>
+                    <p class="text-gray-600">Frota especializada para transporte de produtos perecíveis com controle rigoroso de temperatura.</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-white rounded-lg shadow-md p-6 service-card transition duration-300">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-laptop-code text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Rastreamento Online</h3>
+                    <p class="text-gray-600">Acompanhe sua carga em tempo real através de nossa plataforma digital com atualizações constantes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <div class="text-center">
+                        <img src="https://cdn-uploads.huggingface.co/production/uploads/6815259c976bd0b76d28b0d8/N_sPJaPLUy3F1uYcLP5Ws.png" alt="Fragoso's Transportes" class="about-logo mx-auto">
+                    </div>
+                
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Nossa História</h2>
+                    <div class="w-20 h-1 bg-red-600 mb-6"></div>
+                    <p class="text-gray-600 mb-6">A Fragoso's Transportes é uma empresa familiar com mais de 40 anos de história, passando de geração em geração. Iniciamos com meu avô e hoje estamos na segunda geração, mantendo os mesmos valores de honestidade, compromisso e excelência no atendimento.</p>
+                    <p class="text-gray-600 mb-6">O que começou como um pequeno negócio local transformou-se em uma referência em transporte e logística em todo o Nordeste e outras regiões do Brasil, sempre priorizando a satisfação dos nossos clientes.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-red-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-check text-red-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Tradição Familiar</h4>
+                                <p class="text-gray-600">Mais de 40 anos de experiência no mercado de transporte.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-red-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-check text-red-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Compromisso</h4>
+                                <p class="text-gray-600">Atendimento personalizado e soluções sob medida.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-red-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-check text-red-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Tecnologia</h4>
+                                <p class="text-gray-600">Frota moderna equipada com os melhores sistemas de rastreamento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage Area Section -->
+    <section id="coverage" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Áreas de Atuação</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Atendemos em diversos estados do Nordeste e outras regiões do Brasil.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Maceió</h3>
+                    <p class="text-gray-600">Alagoas</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Recife</h3>
+                    <p class="text-gray-600">Pernambuco</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Fortaleza</h3>
+                    <p class="text-gray-600">Ceará</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Salvador</h3>
+                    <p class="text-gray-600">Bahia</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Rio de Janeiro</h3>
+                    <p class="text-gray-600">RJ</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">São Paulo</h3>
+                    <p class="text-gray-600">SP</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Curitiba</h3>
+                    <p class="text-gray-600">Paraná</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">João Pessoa</h3>
+                    <p class="text-gray-600">Paraíba</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">São Luís</h3>
+                    <p class="text-gray-600">Maranhão</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">O que nossos clientes dizem</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">A satisfação dos nossos clientes é nossa maior recompensa.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Há 15 anos confio na Fragoso's para o transporte de minhas mercadorias. A tradição e profissionalismo da família Fragoso fazem toda diferença."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Carlos Mendes</h4>
+                            <p class="text-gray-500 text-sm">Distribuidor - Maceió/AL</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Como empresa do ramo alimentício, precisamos de transporte refrigerado confiável. A Fragoso's nunca nos deixou na mão em 8 anos de parceria."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Ana Silva</h4>
+                            <p class="text-gray-500 text-sm">Sococo Indústria de Alimentos - Maceió/AL </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Acompanhei o crescimento da Fragoso's ao longo dos anos. Hoje, mesmo sendo uma empresa maior, mantém o atendimento personalizado de sempre."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Cliente" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Whanderson Fragoso</h4>
+                            <p class="text-gray-500 text-sm">Comerciante - Salvador/BA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Entre em Contato</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Estamos prontos para atender suas necessidades logísticas. Preencha o formulário abaixo ou utilize nossos outros canais de contato.</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-2">Nome Completo</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-2">E-mail</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 mb-2">Telefone</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 mb-2">Assunto</label>
+                            <select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                                <option value="">Selecione um assunto</option>
+                                <option value="orcamento">Solicitação de Orçamento</option>
+                                <option value="rastreio">Rastreamento de Carga</option>
+                                <option value="duvidas">Dúvidas e Informações</option>
+                                <option value="reclamacao">Reclamações</option>
+                                <option value="elogios">Elogios</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2">Mensagem</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"></textarea>
+                        </div>
+                        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-medium w-full transition">Enviar Mensagem</button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-6">Informações de Contato</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-red-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-red-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Endereço</h4>
+                                    <p class="text-gray-600">Rua H, Q8, nº 43<br>Maceió, Alagoas 57041-178</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-red-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone-alt text-red-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Telefone</h4>
+                                    <p class="text-gray-600">(82) 99610-8988<br>WhatsApp disponível</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-red-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-red-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">E-mail</h4>
+                                    <p class="text-gray-600">logistica@fragosostransportes.com.br</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-red-100 p-3 rounded-full mr-4">
+                                    <i class="fab fa-instagram text-red-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Instagram</h4>
+                                    <p class="text-gray-600">@fragosos.transporte</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-red-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-clock text-red-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Horário de Funcionamento</h4>
+                                    <p class="text-gray-600">Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16">
+                <div class="map-container rounded-lg shadow-xl">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.328389752936!2d-35.73472292401993!3d-9.64825387404495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x70145ca5e03e267%3A0x1e0c2c9a4c5e8f1e!2sMacei%C3%B3%2C%20AL!5e0!3m2!1spt-BR!2sbr!4v1623860426928!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="logo-container mr-3">
+                            <img src="https://cdn-uploads.huggingface.co/production/uploads/6815259c976bd0b76d28b0d8/iLGtaQAFYdZUegc_oY8WQ.png)" alt="Fragoso's Transportes" class="logo-img">
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">40 anos de tradição familiar em transporte e logística em todo o Nordeste e Brasil.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/fragosos.transporte" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Início</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Serviços</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">Sobre Nós</a></li>
+                        <li><a href="#coverage" class="text-gray-400 hover:text-white transition">Áreas de Atuação</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Serviços</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Transporte Rodoviário</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Armazenagem</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Distribuição</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Logística Expressa</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Transporte Refrigerado</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contato</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-red-400"></i>
+                            <span>Rua H, Q8, nº 43<br>Maceió - AL 57041-178</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-red-400"></i>
+                            <span>(82) 99610-8988</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-red-400"></i>
+                            <span>logistica@fragosostransportes.com.br</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-instagram mr-3 text-red-400"></i>
+                            <span>@fragosos.transporte</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Fragoso's Transportes. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5582996108988" class="floating-button bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="hidden fixed bottom-24 right-6 bg-red-600 text-white p-3 rounded-full shadow-lg hover:bg-red-700 transition">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // Back to Top Button
+        window.addEventListener('scroll', function() {
+            var backToTopButton = document.getElementById('back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        document.getElementById('back-to-top').addEventListener('click', function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+        
+        // Form submission (example)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Obrigado por sua mensagem! Entraremos em contato em breve.');
+            this.reset();
+        });
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=FRAGOSOW/site-mistral" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
